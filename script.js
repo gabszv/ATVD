@@ -45,8 +45,8 @@ function buscarPais() {
     const resultadoDiv = document.querySelector('#resultado');
     const sugestoes = document.querySelector('#sugestoes');
 
-    resultadoDiv.innerHTML = ''; // Limpa o resultado anterior
-    sugestoes.innerHTML = ''; // Limpa as sugestões
+    resultadoDiv.innerHTML = ''; 
+    sugestoes.innerHTML = ''; 
 
     const paisEncontrado = Object.values(dadosPaises).find(pais => 
         pais.pais.toLowerCase() === nomePais
@@ -73,23 +73,23 @@ carregarDados();
 
 document.querySelector('#nome').addEventListener('input', sugerirPaises);
 
-// Adicionando a função de pesquisar com Enter
+
 document.querySelector('#nome').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         buscarPais();
     }
 });
 
-// Função de pesquisa por voz
+
 function pesquisarPorVoz() {
     const reconhecimentoDeVoz = window.SpeechRecognition || window.webkitSpeechRecognition;
     const reconhecimento = new reconhecimentoDeVoz();
     const statusVoz = document.querySelector('#status-voz');
 
-    reconhecimento.lang = 'pt-BR'; // Define o idioma
+    reconhecimento.lang = 'pt-BR'; 
     reconhecimento.start();
 
-    // Indica que o microfone está ativo
+   
     statusVoz.classList.add('ativo');
 
     reconhecimento.onresult = function(event) {
@@ -97,19 +97,19 @@ function pesquisarPorVoz() {
         document.querySelector('#nome').value = resultado;
         buscarPais();
 
-        // Para de indicar que o microfone está ativo
+       
         statusVoz.classList.remove('ativo');
     };
 
     reconhecimento.onerror = function(event) {
         console.error('Erro no reconhecimento de voz:', event.error);
 
-        // Remove a indicação de escuta em caso de erro
+       
         statusVoz.classList.remove('ativo');
     };
 
     reconhecimento.onend = function() {
-        // Remove a indicação de escuta quando a escuta por voz termina
+       
         statusVoz.classList.remove('ativo');
     };
 }
