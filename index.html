@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <link rel="shortcut icon" href="/PWA/icons/brasil.png" type="image/x-icon">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto - Buscar Países</title>
+
+    <!-- Meta description para SEO -->
+    <meta name="description" content="Descubra informações detalhadas sobre países, suas bandeiras, códigos DDI e continentes, em uma aplicação interativa e de fácil uso.">
+
+    <!-- Canonical URL para evitar conteúdo duplicado -->
+    <link rel="canonical" href="https://www.seusite.com/">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Buscar Países">
+    <meta property="og:description" content="Busque informações sobre bandeiras, DDI e continentes dos países.">
+    <meta property="og:image" content="link-para-sua-imagem.jpg">
+    <meta property="og:url" content="https://www.seusite.com/">
+    <meta property="og:type" content="website">
+
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link para o manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Registrar o service worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker registrado com sucesso.'))
+                .catch(error => console.log('Falha ao registrar Service Worker:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Buscar Países</h1>
+    <div class="form">
+        <input type="text" id="nome" placeholder="Digite o nome do país" autocomplete="off">
+        <button id="btn">Buscar</button>
+        <button id="btn-voz">🎤</button> <!-- Botão para pesquisa por voz -->
+        <div id="status-voz" class="status-voz">Escutando...</div> <!-- Status de escuta -->
+        <ul id="sugestoes"></ul>
+    </div>
+
+    <h2>Resultados da Busca</h2>
+    <div id="resultado"></div>
+
+    <!-- Links de contato -->
+    <footer>
+        <p>Entre em contato:</p>
+        <ul>
+            <li><a href="mailto:2004biel2005@gmail.com" title="Enviar email">Email</a></li>
+            <li><a href="https://wa.me/5581999999999" title="Contato WhatsApp" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.google.com/maps?q=-8.0477039,-34.9359074&hl=pt-BR" title="Ver no mapa" target="_blank">Nosso Endereço</a></li>
+        </ul>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
